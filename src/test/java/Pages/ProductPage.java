@@ -99,12 +99,15 @@ public class ProductPage {
     @FindBy(xpath = "//*[@id='continue']")
     private WebElement continueButton;
 
-
     //total value web element
     @FindBy(xpath = "//div[@class=\"summary_total_label\"]")
     private WebElement totalLabel;
 
-    //clicking on items webelements:
+    //error msg for wrong information on checkout page
+    @FindBy(xpath = "//*[@id=\"checkout_info_container\"]/div/form/div[1]/div[4]/h3")
+    private WebElement errorMsgCheckout;
+
+    //clicking on items web elements:
 
     //opening shopping cart
     public void clickOnCart(){
@@ -161,6 +164,11 @@ public class ProductPage {
     //clicking on reset app state web element.
     public void clickReset(){
         resetAppStateButton.click();
+    }
+
+    // getting the Error Message from the checkout page info error
+    public String getCheckoutErrorMsg(){
+        return errorMsgCheckout.getAttribute("innerText");
     }
 
 }

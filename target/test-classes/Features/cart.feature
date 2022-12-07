@@ -21,6 +21,7 @@ Feature: Saucedemo cart testing.
       | Sauce Labs Backpack    | Total: $32.39    |
       | Sauce Labs Bike Light  | Total: $10.79  |
       | Sauce Labs Backpack,Sauce Labs Bike Light   |  Total: $43.18  |
+      | Sauce Labs Backpack,Sauce Labs Onesie       |  Total: $41.02  |
       | Sauce Labs Bolt T-Shirt,Sauce Labs Fleece Jacket,Sauce Labs Onesie | Total: $79.89 |
       | Sauce Labs Bolt T-Shirt,Sauce Labs Fleece Jacket,Sauce Labs Onesie,Test.allTheThings() T-Shirt (Red) | Total: $97.16  |
 

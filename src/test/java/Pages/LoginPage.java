@@ -40,15 +40,17 @@ public class LoginPage {
         return driver.findElement(locator);
     }
 
+    //filling text fields, bylocator for the field and value to be filled in
     public void fillField(By locator, String value) {
         getField(locator).sendKeys(value); //fills text fields, locator to be filled and string to be filled in
     }
 
+    //clicking login button
     public void clickLoginButton(){
         loginButton.click();
     }
 
-
+    public String getLoginErrorMsg(){return loginErrorMsg.getText();}
 
 
 

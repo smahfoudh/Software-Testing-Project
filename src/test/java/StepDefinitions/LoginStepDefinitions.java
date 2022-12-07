@@ -32,6 +32,12 @@ public class LoginStepDefinitions extends AbsStepDefinitions{
     @Then("Product page is opened")
     public void ProductPageIsOpened() {Assert.assertEquals(driver.getCurrentUrl(), ProductPage.URL);}
 
+    @Then("a {string} is displayed")
+    public void ErrorMsgDisplayed(String message){Assert.assertEquals(loginPage.getLoginErrorMsg(), message);}
+
+    @Then("an error msg for incorrect info is shown")
+    public void IncorrectInfoMsgDisplayed(){Assert.assertEquals(loginPage.getLoginErrorMsg(), "Epic sadface: Username and password do not match any user in this service");}
+
 
 
 }

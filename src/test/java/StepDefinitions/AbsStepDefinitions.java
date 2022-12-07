@@ -15,7 +15,7 @@ public abstract class AbsStepDefinitions {
     private static final int WAIT_TIME = 50; //waiting for the loading of elements
     static WebDriver driver;
     protected static LoginPage loginPage;
-    protected static InventoryPage inventoryPage;
+    protected static ProductPage productPage;
 
     static {
 
@@ -26,7 +26,7 @@ public abstract class AbsStepDefinitions {
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(WAIT_TIME, TimeUnit.SECONDS);
         loginPage = new LoginPage(driver);
-        inventoryPage = new InventoryPage(driver);
+        productPage = new ProductPage(driver);
 
     }
 

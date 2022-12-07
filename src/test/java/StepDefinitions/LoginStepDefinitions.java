@@ -12,20 +12,26 @@ public class LoginStepDefinitions extends AbsStepDefinitions{
 
 //we test login feature here
 
-    @Given("Username is filled with {String}")
+    @Given("homepage is open")
+    public void theHomepageIsOpen() {
+        loginPage.loadPage();
+    }
+
+    @Given("Username is filled with {string}")
     public void UsernameIsFilledWithString(String username){loginPage.fillField(LoginPage.USERNAME, username);}
 
-    @And("Password is filled with {String}")
+    @And("Password is filled with {string}")
     public void PasswordIsFilledWithString(String password){loginPage.fillField(LoginPage.PASSWORD, password);}
 
     @When("Login button is clicked")
     public void LoginButtonIsClicked(){
-        LoginPage.clickLoginButton();
-        inventoryPage.loadProductPage();
+        loginPage.clickLoginButton();
+        productPage.loadProductPage();
     }
 
     @Then("Product page is opened")
-    public void ProductPageIsOpened() {Assert.assertEquals(driver.getCurrentUrl(), ProductPage.PAGE_URL);}
+    public void ProductPageIsOpened() {Assert.assertEquals(driver.getCurrentUrl(), ProductPage.URL);}
+
 
 
 }

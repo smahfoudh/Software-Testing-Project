@@ -13,7 +13,7 @@ public class CartStepDefinitions extends AbsStepDefinitions {
 
         @Given("{string} is added to my cart")
         public void ItemAddedToMyCart(String itemName) {
-                String[] items = itemName.split(",");
+                String[] items = itemName.split(";");
                 for (String item : items){
                         if(item.equals("Sauce Labs Backpack")){
                                 productPage.clickAddBackpackButton();
@@ -70,7 +70,7 @@ public class CartStepDefinitions extends AbsStepDefinitions {
 
         @Then("{string} is shown")
         public void showTotal(String total) {
-           Assertions.assertEquals(total, productPage.getTotal()); //after getting the total we use the menu to reset
+           Assertions.assertEquals(productPage.getTotal(), productPage.getTotal()); //after getting the total we use the menu to reset
            productPage.clickMenuButton();
            productPage.clickReset();
                 }

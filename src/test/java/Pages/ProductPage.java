@@ -177,8 +177,16 @@ public class ProductPage {
         continueButton.click();
     }
 
+
+    //testing
+    //public String getTotalFixed(String test){
+      //  String testing = totalLabel.getText().toString();
+
+   // String test=totalLabel.getText().replace("Total:","");
+    //}
     //getting the text from the total web element
-    public String getTotal(){return totalLabel.getText();}
+    public String getTotal(){return totalLabel.getText().replace("Total:","");
+    }
 
 
     //clicking on the menu button web element.

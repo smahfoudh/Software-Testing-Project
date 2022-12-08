@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import java.util.List;
 
 public class ProductPage {
     //product or inventory page web elements here
@@ -26,7 +27,7 @@ public class ProductPage {
     public void loadProductPage(){PageFactory.initElements(driver, this);}
 
     /**
-     * The method that returns the field we wish to retrieve using the locator of said field.
+     * The method that returns the field we wish to retrieve using the locator.
      * @param locator the By locator for the field to retrieve.
      * @return the field we wish to retrieve using the locator.
      */
@@ -107,7 +108,29 @@ public class ProductPage {
     @FindBy(xpath = "//*[@id=\"checkout_info_container\"]/div/form/div[1]/div[4]/h3")
     private WebElement errorMsgCheckout;
 
-    //clicking on items web elements:
+    //web element of all items button from side menu
+    @FindBy(xpath = "//*[@id='inventory_sidebar_link']")
+    private WebElement allItemsButton;
+
+    //web element of about button
+    @FindBy(xpath = "//*[@id='about_sidebar_link']")
+    private WebElement aboutButton;
+
+    //web element of logout button
+    @FindBy(xpath = "//*[@id='logout_sidebar_link']")
+    private WebElement logoutButton;
+
+    //web element for cart badge
+    @FindBy(xpath = "//*[class=\"shopping_cart_badge\"]")
+    private WebElement cartBadge;
+
+
+    //web element of reset button
+
+
+
+    //------------------------------
+    //clicking on items, web elements:
 
     //opening shopping cart
     public void clickOnCart(){
@@ -169,6 +192,27 @@ public class ProductPage {
     // getting the Error Message from the checkout page info error
     public String getCheckoutErrorMsg(){
         return errorMsgCheckout.getAttribute("innerText");
+    }
+
+    //clicking the all items option from the side menu
+    public void clickAllItemsOption(){
+        allItemsButton.click();
+    }
+
+    //clicking the all items option from the side menu
+    public void clickAboutOption(){ aboutButton.click();}
+
+    //clicking on the logout button from the side menu
+    public void clickLogoutOption(){ logoutButton.click();}
+
+    //method to check whether the cart has an item icon or not, then returns true or false
+    public boolean findIcon(){ //inspected the element to get the path
+        List<WebElement> checkElements = driver.findElements(By.cssSelector("div.page_wrapper div.header_container:nth-child(1) div.primary_header div.shopping_cart_container:nth-child(3) a.shopping_cart_link > span.shopping_cart_badge"));
+            if(checkElements.isEmpty()){
+                return false;
+            }else{
+                return true;
+            }
     }
 
 }
